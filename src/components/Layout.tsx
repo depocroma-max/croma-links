@@ -12,15 +12,18 @@ interface Props {
 
 export function Layout({ eyebrow, title, tagline, children }: Props) {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-4 px-4 pb-10 pt-5">
-      <header className="rounded-3xl bg-croma-black px-6 py-8 text-center text-white">
-        <img src="/tridente-192.png" alt="" width={56} height={56} className="mx-auto mb-3 h-14 w-14" />
-        <p className="font-display text-6xl leading-none tracking-[0.2em] pl-[0.2em]">CROMA</p>
-        <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.28em] text-white/70">
+    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 pb-8 pt-4">
+      <header className="rounded-3xl bg-croma-black px-5 py-5 text-center text-white">
+        <div className="flex items-center justify-center gap-3">
+          <img src="/tridente-192.png" alt="" width={44} height={44} className="h-11 w-11" />
+          {/* mr negativo: anula el espaciado final de las letras para centrar la marca */}
+          <p className="-mr-[0.2em] font-display text-5xl leading-none tracking-[0.2em]">CROMA</p>
+        </div>
+        <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.26em] text-white/70">
           {eyebrow}
         </p>
-        <span aria-hidden className="mx-auto my-5 block h-[3px] w-10 rounded-full bg-croma-red" />
-        <h1 className="font-display text-4xl leading-tight tracking-wider text-balance">
+        <span aria-hidden className="mx-auto my-3 block h-[2px] w-9 rounded-full bg-croma-red" />
+        <h1 className="font-display text-3xl leading-tight tracking-wider text-balance">
           {glueDash(title)}
         </h1>
         {tagline ? (

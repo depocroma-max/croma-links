@@ -24,15 +24,15 @@ const ICONS: Record<LinkKey, ReactNode> = {
 const BRANCH_ICON = <Store size={24} strokeWidth={1.8} aria-hidden />;
 
 const BTN =
-  'link-btn group flex min-h-[64px] w-full items-center gap-4 rounded-2xl border border-croma-line ' +
-  'bg-croma-soft px-4 py-3 text-base font-medium text-croma-black no-underline ' +
+  'link-btn group flex min-h-[56px] w-full items-center gap-4 rounded-2xl border border-croma-line ' +
+  'bg-croma-soft px-4 py-2 text-base font-medium text-croma-black no-underline ' +
   'hover:border-croma-black hover:bg-white focus-visible:outline focus-visible:outline-2 ' +
   'focus-visible:outline-offset-2 focus-visible:outline-croma-red';
 
 function Row({ icon, label }: { icon: ReactNode; label: string }) {
   return (
     <>
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-croma-black">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-croma-black">
         {icon}
       </span>
       <span className="flex-1 text-left">{glueDash(label)}</span>
