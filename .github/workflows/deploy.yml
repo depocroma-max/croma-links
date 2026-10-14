@@ -1,0 +1,64 @@
+# Croma Links: verificación y publicación en GitHub Pages.
+#
+# ESTADO: PREPARADO, SIN DISPARADORES AUTOMÁTICOS.
+# Solo se ejecuta a mano (workflow_dispatch) desde la pestaña Actions, y la
+# publicación exige escribir PUBLICAR en el campo de confirmación.
+# NO agregar `push`, `schedule` ni `pull_request` sin autorización expresa.
+name: Deploy Croma Links
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmar:
+        description: 'Escribí PUBLICAR para desplegar. Cualquier otro valor solo verifica y compila.'
+        required: false
+        default: ''
+
+# Permisos mínimos: leer el código, y escribir Pages con token OIDC solo en el deploy.
+permissions:
+  contents: read
+
+# Un solo despliegue a la vez; no cancelar uno en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependencias (reproducible)
+        run: npm ci
+
+      # typecheck + build + build de demo (solo para pruebas) + QR + tests.
+      # Falla ante URLs inválidas, páginas incompletas o contenido no permitido.
+      - name: Verificar y compilar
+        run: npm run check
+
+      - name: Verificar que dist/ contenga solo el sitio publicable
+        run: node scripts/verify-dist.mjs
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: ${{ inputs.confirmar == 'PUBLICAR' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write      # publicar en Pages
+      id-token: write   # verificar el origen del despliegue (OIDC)
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
