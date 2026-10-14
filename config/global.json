@@ -4,10 +4,10 @@
   "locale": "es-AR",
   "defaultOgImage": "/og-default.png",
   "links": {
-    "instagram": null,
-    "tiktok": null,
-    "facebook": null,
-    "youtube": null,
+    "instagram": "https://www.instagram.com/cromask7/?hl=es",
+    "tiktok": "https://www.tiktok.com/@cromask7",
+    "facebook": "https://www.facebook.com/cromask7",
+    "youtube": "https://www.youtube.com/@Cromanews-TV",
     "store": "https://www.cromashop.com.ar/"
   }
 }

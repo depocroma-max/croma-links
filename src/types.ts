@@ -23,7 +23,7 @@ export interface Branch {
   slug: string;
   active: boolean;
   address: string | null;
-  /** Número en formato internacional, solo dígitos (ej. 5492990000000). */
+  /** Enlace https de walink.co / wa.me, o número internacional solo dígitos. */
   whatsapp: string | null;
   mapsUrl: string | null;
   /** Una línea por tramo, ej. "Lun a Sáb · 10 a 20 hs". */

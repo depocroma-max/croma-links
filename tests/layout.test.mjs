@@ -36,10 +36,11 @@ test('1b. separación de 24 px (gap-6) solo entre grupos; botones con gap-3', ()
   assert.match(html, /<div class="flex flex-col gap-6"><div data-group="social" class="flex flex-col gap-3">/);
 });
 
-test('2. sin grupos vacíos: sin redes no hay grupo social', () => {
-  const g = groupsOf(real('paseo/index.html'));
-  assert.deepEqual(g, [{ group: 'contact', labels: ['Tienda online'] }]);
-  assert.ok(!body(real('paseo/index.html')).includes('data-group="social"'));
+test('2. config oficial: dos grupos con orden fijo (la ausencia de grupos vacíos se prueba en links.test.mjs)', () => {
+  assert.deepEqual(groupsOf(real('paseo/index.html')), [
+    { group: 'social', labels: ['Instagram', 'TikTok', 'Facebook', 'YouTube'] },
+    { group: 'contact', labels: ['WhatsApp', 'Tienda online'] },
+  ]);
 });
 
 test('2b. sin WhatsApp ni mapa, el grupo contacto solo tiene la tienda (Roca demo)', () => {

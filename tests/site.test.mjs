@@ -38,12 +38,12 @@ for (const b of active) {
   });
 }
 
-test('los datos null no generan botones (no hay redes ni WhatsApp ni mapa)', () => {
-  const body = read('paseo/index.html').split('<body>')[1];
-  for (const label of ['Instagram', 'TikTok', 'Facebook', 'YouTube', 'WhatsApp', 'Cómo llegar']) {
-    assert.ok(!body.includes(label), `no debe aparecer ${label}`);
+test('los datos null no generan botones: sin mapsUrl no hay "Cómo llegar"', () => {
+  for (const b of active) {
+    const body = read(`${b.slug}/index.html`).split('<body>')[1];
+    assert.ok(!body.includes('Cómo llegar'), `${b.slug} no debe mostrar Cómo llegar`);
+    assert.ok(body.includes('Tienda online'));
   }
-  assert.ok(body.includes('Tienda online'));
 });
 
 test('home lista solo sucursales activas', () => {

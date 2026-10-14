@@ -13,12 +13,30 @@ export function isValidUrl(value: unknown): value is string {
   }
 }
 
-export function isValidWhatsapp(value: unknown): value is string {
-  return typeof value === 'string' && /^\d{10,15}$/.test(value);
+/**
+ * El campo `whatsapp` acepta:
+ *  - un enlace https oficial: `walink.co/<código>` o `wa.me/<número>` (se usa tal cual), o
+ *  - solo dígitos en formato internacional (10 a 15), que se convierte a `wa.me`.
+ * El hostname debe coincidir exactamente: se rechazan dominios parecidos
+ * (walink.co.evil.com, xwalink.co, etc.), http, credenciales y puertos.
+ */
+export function resolveWhatsapp(value: unknown): string | null {
+  if (typeof value !== 'string') return null;
+  if (/^\d{10,15}$/.test(value)) return `https://wa.me/${value}`;
+  let u: URL;
+  try {
+    u = new URL(value);
+  } catch {
+    return null;
+  }
+  if (u.protocol !== 'https:' || u.username || u.password || u.port) return null;
+  if (u.hostname === 'walink.co' && /^\/[A-Za-z0-9_-]{3,64}\/?$/.test(u.pathname)) return value;
+  if (u.hostname === 'wa.me' && /^\/\d{10,15}\/?$/.test(u.pathname)) return value;
+  return null;
 }
 
-export function whatsappUrl(number: string): string {
-  return `https://wa.me/${number}`;
+export function isValidWhatsapp(value: unknown): value is string {
+  return resolveWhatsapp(value) !== null;
 }
 
 /**
@@ -35,7 +53,7 @@ export function buildLinks(global: GlobalConfig, branch: Branch): ResolvedLink[]
   add('tiktok', 'TikTok', global.links.tiktok);
   add('facebook', 'Facebook', global.links.facebook);
   add('youtube', 'YouTube', global.links.youtube);
-  if (isValidWhatsapp(branch.whatsapp)) add('whatsapp', 'WhatsApp', whatsappUrl(branch.whatsapp));
+  add('whatsapp', 'WhatsApp', resolveWhatsapp(branch.whatsapp));
   add('store', 'Tienda online', global.links.store);
   add('maps', 'Cómo llegar', branch.mapsUrl);
   for (const extra of branch.extraLinks) add('extra', extra.label, extra.url);

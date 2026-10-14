@@ -25,7 +25,7 @@ export function validateConfig(global: GlobalConfig, branches: Branch[]): string
     if (b.header && b.header.tagline != null && typeof b.header.tagline !== 'string')
       errors.push(`${w}: header.tagline debe ser texto o null`);
     if (b.whatsapp !== null && !isValidWhatsapp(b.whatsapp))
-      errors.push(`${w}: whatsapp debe ser solo dígitos en formato internacional (10 a 15)`);
+      errors.push(`${w}: whatsapp debe ser un enlace https de walink.co o wa.me, o dígitos internacionales (10 a 15)`);
     url(`${w}.mapsUrl`, b.mapsUrl);
     for (const e of b.extraLinks) {
       if (!e.label.trim()) errors.push(`${w}: enlace adicional sin etiqueta`);
