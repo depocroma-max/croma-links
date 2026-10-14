@@ -1,0 +1,13 @@
+{
+  "brand": "Croma",
+  "siteUrl": "https://links.cromashop.com.ar",
+  "locale": "es-AR",
+  "defaultOgImage": "/og-default.png",
+  "links": {
+    "instagram": null,
+    "tiktok": null,
+    "facebook": null,
+    "youtube": null,
+    "store": "https://www.cromashop.com.ar/"
+  }
+}

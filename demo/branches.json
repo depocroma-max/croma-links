@@ -1,0 +1,18 @@
+[
+  { "id": "01", "name": "CROMA PASEO", "slug": "paseo", "active": true,
+    "address": "DATO FICTICIO · Av. Ejemplo 1234, Neuquén", "whatsapp": "5490000000001",
+    "mapsUrl": "https://example.com/demo/mapa-paseo",
+    "hours": ["DATO FICTICIO · Lun a Sáb 10 a 20 hs", "Dom 11 a 19 hs"],
+    "image": null, "extraLinks": [{ "label": "Catálogo de ejemplo", "url": "https://example.com/demo/catalogo" }], "header": { "tagline": "Texto de ejemplo del encabezado" } },
+  { "id": "05", "name": "CROMA WAVE", "slug": "wave", "active": true,
+    "address": "DATO FICTICIO · Calle Demo 55", "whatsapp": "5490000000005", "mapsUrl": "https://example.com/demo/mapa-wave",
+    "hours": null, "image": null, "extraLinks": [], "header": { "tagline": "   " } },
+  { "id": "10", "name": "CROMA PERITO MORENO", "slug": "perito", "active": true,
+    "address": null, "whatsapp": "5490000000010", "mapsUrl": null, "hours": null, "image": null, "extraLinks": [], "header": { "tagline": "" } },
+  { "id": "12", "name": "CROMA CENTENARIO", "slug": "centenario", "active": true,
+    "address": null, "whatsapp": null, "mapsUrl": "https://example.com/demo/mapa-centenario", "hours": null, "image": null, "extraLinks": [], "header": null },
+  { "id": "14", "name": "CROMA ROCA", "slug": "roca", "active": true,
+    "address": null, "whatsapp": null, "mapsUrl": null, "hours": null, "image": null, "extraLinks": [], "header": null },
+  { "id": "09", "name": "CROMA CIPO SAN MARTÍN", "slug": "cipo", "active": false,
+    "address": null, "whatsapp": null, "mapsUrl": null, "hours": null, "image": null, "extraLinks": [], "header": null }
+]
