@@ -38,10 +38,10 @@ for (const b of active) {
   });
 }
 
-test('los datos null no generan botones: sin mapsUrl no hay "Cómo llegar"', () => {
+test('"Cómo llegar" aparece solo si la sucursal tiene mapsUrl', () => {
   for (const b of active) {
     const body = read(`${b.slug}/index.html`).split('<body>')[1];
-    assert.ok(!body.includes('Cómo llegar'), `${b.slug} no debe mostrar Cómo llegar`);
+    assert.equal(body.includes('Cómo llegar'), b.mapsUrl !== null, `${b.slug}`);
     assert.ok(body.includes('Tienda online'));
   }
 });

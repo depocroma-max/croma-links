@@ -4,6 +4,16 @@ import { InternalButton, LinkButton } from '../components/LinkButton';
 import { buildLinkGroups, cleanTagline } from '../lib/links';
 import type { Branch, GlobalConfig } from '../types';
 
+const NBSP = ' ';
+
+/** Evita que un rango horario ("de 9:30 a 13:30") se corte entre dos líneas. */
+function keepRangesTogether(text: string): string {
+  return text.replace(
+    /(?:de )?\d{1,2}:\d{2} a \d{1,2}:\d{2}/g,
+    (range) => range.replace(/ /g, NBSP),
+  );
+}
+
 export function BranchPage({ global, branch }: { global: GlobalConfig; branch: Branch }) {
   const groups = buildLinkGroups(global, branch);
   const hasHours = !!branch.hours && branch.hours.length > 0;
@@ -37,7 +47,9 @@ export function BranchPage({ global, branch }: { global: GlobalConfig; branch: B
               <Clock size={18} className="mt-0.5 shrink-0 text-croma-black/60" aria-hidden />
               <ul className="space-y-0.5">
                 {branch.hours!.map((h) => (
-                  <li key={h}>{h}</li>
+                  <li key={h} className="text-balance">
+                    {keepRangesTogether(h)}
+                  </li>
                 ))}
               </ul>
             </div>

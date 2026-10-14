@@ -4,10 +4,12 @@
     "name": "CROMA PASEO",
     "slug": "paseo",
     "active": true,
-    "address": "Paseo del Sol, Local 2 — Neuquén Capital",
+    "address": "Perito Moreno y Río Negro, Paseo del Sol Local 2, Neuquén Capital",
     "whatsapp": "https://walink.co/a9d0c6",
-    "mapsUrl": null,
-    "hours": null,
+    "mapsUrl": "https://maps.app.goo.gl/LjE7Kt5ktZ3ZruFZ9",
+    "hours": [
+      "Lunes a sábados, de 9:00 a 21:00"
+    ],
     "image": null,
     "extraLinks": [],
     "header": null
@@ -17,10 +19,12 @@
     "name": "CROMA WAVE",
     "slug": "wave",
     "active": true,
-    "address": "Sarmiento 2 — Neuquén Capital",
+    "address": "Sarmiento 2, Neuquén Capital",
     "whatsapp": "https://walink.co/f4bab9",
-    "mapsUrl": null,
-    "hours": null,
+    "mapsUrl": "https://maps.app.goo.gl/hFMYzhR9UXG5tSaw7",
+    "hours": [
+      "Lunes a sábados, de 9:00 a 21:00"
+    ],
     "image": null,
     "extraLinks": [],
     "header": null
@@ -30,10 +34,12 @@
     "name": "CROMA PERITO MORENO",
     "slug": "perito",
     "active": true,
-    "address": "Perito Moreno 151 — Neuquén Capital",
+    "address": "Perito Moreno 151, Neuquén Capital",
     "whatsapp": "https://walink.co/31ee7b",
-    "mapsUrl": null,
-    "hours": null,
+    "mapsUrl": "https://maps.app.goo.gl/cPHpAzmr7FDUTgQy5",
+    "hours": [
+      "Lunes a sábados, de 9:30 a 13:30 y de 16:00 a 21:00"
+    ],
     "image": null,
     "extraLinks": [],
     "header": null
@@ -43,10 +49,12 @@
     "name": "CROMA CENTENARIO",
     "slug": "centenario",
     "active": true,
-    "address": "Antártida Argentina 300 — Centenario",
+    "address": "Antártida Argentina 300, Centenario, Neuquén",
     "whatsapp": "https://walink.co/29aa5c",
-    "mapsUrl": null,
-    "hours": null,
+    "mapsUrl": "https://maps.app.goo.gl/k7qSpD8bDVL3MAVH7",
+    "hours": [
+      "Lunes a sábados, de 9:30 a 13:30 y de 16:30 a 21:00"
+    ],
     "image": null,
     "extraLinks": [],
     "header": null
@@ -56,10 +64,13 @@
     "name": "CROMA ROCA",
     "slug": "roca",
     "active": true,
-    "address": "Roca 180 — Cipolletti",
+    "address": "General Roca 180, Cipolletti, Río Negro",
     "whatsapp": "https://walink.co/bb6a28",
-    "mapsUrl": null,
-    "hours": null,
+    "mapsUrl": "https://maps.app.goo.gl/EHrnrgxj2Er2LvMa6",
+    "hours": [
+      "Lunes a viernes, de 9:00 a 13:00 y de 16:00 a 21:00",
+      "Sábados, de 9:00 a 13:30 y de 16:00 a 21:00"
+    ],
     "image": null,
     "extraLinks": [],
     "header": null

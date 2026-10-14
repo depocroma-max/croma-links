@@ -39,7 +39,7 @@ test('1b. separación de 24 px (gap-6) solo entre grupos; botones con gap-3', ()
 test('2. config oficial: dos grupos con orden fijo (la ausencia de grupos vacíos se prueba en links.test.mjs)', () => {
   assert.deepEqual(groupsOf(real('paseo/index.html')), [
     { group: 'social', labels: ['Instagram', 'TikTok', 'Facebook', 'YouTube'] },
-    { group: 'contact', labels: ['WhatsApp', 'Tienda online'] },
+    { group: 'contact', labels: ['WhatsApp', 'Tienda online', 'Cómo llegar'] },
   ]);
 });
 
