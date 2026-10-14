@@ -8,6 +8,14 @@ export function titleCase(name: string): string {
     .join(' ');
 }
 
+/**
+ * Une " - " con espacios duros y "word joiner" (U+2060, invisible) para que el guion
+ * no quede colgado al final de una línea ni empiece la siguiente.
+ */
+export function glueDash(text: string): string {
+  return text.replace(/ - /g, ' ⁠-⁠ ');
+}
+
 export function escapeAttr(s: string): string {
   return s
     .replace(/&/g, '&amp;')

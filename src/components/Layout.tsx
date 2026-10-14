@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { glueDash } from '../lib/seo';
 
 interface Props {
   /** Línea bajo "CROMA". */
@@ -19,7 +20,9 @@ export function Layout({ eyebrow, title, tagline, children }: Props) {
           {eyebrow}
         </p>
         <span aria-hidden className="mx-auto my-5 block h-[3px] w-10 rounded-full bg-croma-red" />
-        <h1 className="font-display text-4xl leading-tight tracking-wider">{title}</h1>
+        <h1 className="font-display text-4xl leading-tight tracking-wider text-balance">
+          {glueDash(title)}
+        </h1>
         {tagline ? (
           <p data-tagline className="mt-2 text-sm text-white/70">
             {tagline}

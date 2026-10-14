@@ -7,6 +7,7 @@ import {
   WhatsAppIcon,
   YouTubeIcon,
 } from '../icons/BrandIcons';
+import { glueDash } from '../lib/seo';
 import type { LinkKey, ResolvedLink } from '../types';
 
 const ICONS: Record<LinkKey, ReactNode> = {
@@ -34,7 +35,7 @@ function Row({ icon, label }: { icon: ReactNode; label: string }) {
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-croma-black">
         {icon}
       </span>
-      <span className="flex-1 text-left">{label}</span>
+      <span className="flex-1 text-left">{glueDash(label)}</span>
       <ChevronRight
         className="arrow shrink-0 text-croma-black/40 group-hover:text-croma-red"
         size={22}

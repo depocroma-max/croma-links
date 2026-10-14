@@ -88,6 +88,18 @@ test('branches.json: dirección, Maps, horarios y WhatsApp oficiales', () => {
   }
 });
 
+test('nombres visibles oficiales; los slugs (y por lo tanto los QR) no cambian', () => {
+  const names = Object.fromEntries(branches.map((b) => [b.slug, b.name]));
+  assert.deepEqual(names, {
+    paseo: 'CROMA PASEO - NEUQUÉN',
+    wave: 'CROMA SARMIENTO - NEUQUÉN',
+    perito: 'CROMA PERITO MORENO - NEUQUÉN',
+    centenario: 'CROMA - CENTENARIO',
+    roca: 'CROMA - CIPOLLETTI',
+    cipo: 'CROMA CIPO SAN MARTÍN',
+  });
+});
+
 test('horarios: sin domingos ni feriados inventados', () => {
   for (const b of branches) {
     for (const h of b.hours ?? []) {

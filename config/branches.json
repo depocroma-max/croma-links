@@ -1,7 +1,7 @@
 [
   {
     "id": "01",
-    "name": "CROMA PASEO",
+    "name": "CROMA PASEO - NEUQUÉN",
     "slug": "paseo",
     "active": true,
     "address": "Perito Moreno y Río Negro, Paseo del Sol Local 2, Neuquén Capital",
@@ -16,7 +16,7 @@
   },
   {
     "id": "05",
-    "name": "CROMA WAVE",
+    "name": "CROMA SARMIENTO - NEUQUÉN",
     "slug": "wave",
     "active": true,
     "address": "Sarmiento 2, Neuquén Capital",
@@ -31,7 +31,7 @@
   },
   {
     "id": "10",
-    "name": "CROMA PERITO MORENO",
+    "name": "CROMA PERITO MORENO - NEUQUÉN",
     "slug": "perito",
     "active": true,
     "address": "Perito Moreno 151, Neuquén Capital",
@@ -46,7 +46,7 @@
   },
   {
     "id": "12",
-    "name": "CROMA CENTENARIO",
+    "name": "CROMA - CENTENARIO",
     "slug": "centenario",
     "active": true,
     "address": "Antártida Argentina 300, Centenario, Neuquén",
@@ -61,7 +61,7 @@
   },
   {
     "id": "14",
-    "name": "CROMA ROCA",
+    "name": "CROMA - CIPOLLETTI",
     "slug": "roca",
     "active": true,
     "address": "General Roca 180, Cipolletti, Río Negro",

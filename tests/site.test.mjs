@@ -25,7 +25,7 @@ for (const b of active) {
     const html = read(`${b.slug}/index.html`);
     assert.doesNotMatch(html, /<script/i, 'no debe incluir <script>');
     assert.match(html, /<html lang="es-AR">/);
-    assert.ok(html.includes(`<h1`) && html.includes(b.name), 'encabezado con el nombre');
+    assert.ok(html.includes(`<h1`) && html.replace(/⁠/g, '').replace(/ /g, ' ').includes(b.name), 'encabezado con el nombre');
     assert.ok(html.includes('SEGUINOS EN NUESTRAS REDES') || /Seguinos en nuestras redes/i.test(html));
     // Tienda online presente como enlace real
     assert.match(html, /<a [^>]*href="https:\/\/www\.cromashop\.com\.ar\/"[^>]*rel="noopener noreferrer"/);

@@ -73,11 +73,12 @@ test('5. home: orden de sucursales, tienda separada, sin Cipo', () => {
   const html = body(real('index.html'));
   const hrefs = [...html.matchAll(/href="(\/[a-z]+\/)"/g)].map((m) => m[1]);
   assert.deepEqual(hrefs, ['/paseo/', '/wave/', '/perito/', '/centenario/', '/roca/']);
-  const labels = [...html.matchAll(/<span class="flex-1 text-left">([^<]+)<\/span>/g)].map((m) => m[1]);
-  assert.deepEqual(labels, ['Croma Paseo', 'Croma Wave', 'Croma Perito Moreno', 'Croma Centenario', 'Croma Roca', 'Tienda online']);
+  // los guiones llevan espacios duros para no quedar colgados; el texto es el mismo
+  const labels = [...html.matchAll(/<span class="flex-1 text-left">([^<]+)<\/span>/g)].map((m) => m[1].replace(/⁠/g, '').replace(/ /g, ' '));
+  assert.deepEqual(labels, ['Croma Paseo - Neuquén', 'Croma Sarmiento - Neuquén', 'Croma Perito Moreno - Neuquén', 'Croma - Centenario', 'Croma - Cipolletti', 'Tienda online']);
   assert.ok(html.indexOf('data-group="branches"') < html.indexOf('data-group="store"'));
   assert.match(html, /<div class="flex flex-col gap-5"><div data-group="branches"/);
-  assert.ok(!html.includes('Cipo') && !html.includes('CIPO'));
+  assert.ok(!/cipo san mart/i.test(html) && !html.includes('href="/cipo/"'));
 });
 
 test('6. sin JavaScript: ni <script>, ni onclick, ni modulepreload; enlaces <a> reales', () => {
