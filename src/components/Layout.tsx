@@ -23,7 +23,7 @@ export function Layout({ eyebrow, title, tagline, children }: Props) {
           {eyebrow}
         </p>
         <span aria-hidden className="mx-auto my-3 block h-[2px] w-9 rounded-full bg-croma-red" />
-        <h1 className="font-display text-3xl leading-tight tracking-wider text-balance">
+        <h1 className="font-display text-[26px] leading-tight tracking-wider text-balance">
           {glueDash(title)}
         </h1>
         {tagline ? (
